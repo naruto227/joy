@@ -39,7 +39,7 @@ router.post('/reg', function (req, res) {
     if (password_re != password) {
         return res.json({'error': '两次输入的密码不一致!'});
     }
-    //生成密码的 md5 值
+    //生成密码的 md5 值.
     var md5 = crypto.createHash('md5'),
         password = md5.update(req.body.password).digest('hex');
     var newUser = new User({
