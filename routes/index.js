@@ -15,7 +15,7 @@ router.get('/p', checkLogin);
 router.get('/p', function (req, res, next) {
     //判断是否是第一页，并把请求的页数转换成 number 类型
     var page = parseInt(req.query.p) || 1;
-    //查询并返回第 page 页的 10 篇文章
+    //查询并返回第 page 页的 12条数据
     Post.getTwel(req.session.user.name, page, function (err, posts, total) {
         if (err) {
             posts = [];
