@@ -1,8 +1,129 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+} */
+html,body{
+	margin:0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: "微软雅黑Regular";
 }
+.text-center{
+	text-align: center;
+}
+.pull-left{
+	float:left;
+}
+.pull-right{
+	float:right;
+}
+.joy-container{
+	background: #f0f5f6;
+	width: 100%;
+	min-height: 100%;
+}
+.joy-content{
+	width:1000px;
+	margin:0 auto;
+	padding-top: 100px;
+}
+.joy-title{
+	font-size: 30px;
+	color: #4f606b;
+	margin-bottom: 50px;
+}
+.joy-user{
+	font-size: 16px;
+	color: #4f606f;
+}
+.dropzone{
+	height: 360px;
+    border: none;
+    background: white;
+    padding: 20px 20px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+}
+.dropzone .dz-message{
+	font-size: 20px;
+	line-height: 20px;
+	color:#a0a0a0;
+	vertical-align: middle;
+	margin: 150px 0;
+}
+.btn-group{
+	margin:40px 250px 60px 250px;
+}
+.btn{
+	border:none;
+	outline: none;
+	cursor: pointer;
+}
+.btn.btn-choose{
+	width: 200px;
+	height: 50px;
+	background: url('../images/btn-select-photos.png');
+	margin-right: 100px;
+}
+.btn.btn-choose:hover{
+	background: url('../images/btn-select-photos-hover.png');
+}
+.btn.btn-upload{
+	width: 200px;
+	height: 50px;
+	background: url('../images/btn-upload.png');
+}
+.btn.btn-upload:hover{
+	background: url('../images/btn-upload-hover.png');
+}
+.joy-picwall{
+	background: #fefefe;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+	margin-bottom: 60px;
+}
+.joy-pictitle{
+	color:#616161;
+	font-size: 18px;
+	text-align: left;
+	line-height: 18px;
+	padding: 20px 30px;
+	border-bottom: 1px solid #e8e8e8;
+}
+.joy-pics{
+	height:750px;
+}
+.joy-pic{
+	box-sizing: border-box;
+	width:250px;
+	height:250px;
+	text-align: center;
+	border-bottom:1px solid #e8e8e8;
+	border-right: 1px solid #e8e8e8;
+	float:left;
+}
+.joy-picdate{
+	font-size: 14px;
+	line-height: 14px;
+	color: #9b9b9b;
+	padding:20px 0 ;
+}
+.joy-pic img{
+	width:180px;
+	height:120px;
+	margin-bottom: 20px;
+}
+.btn.btn-showcode{
+	width:120px;
+	height:40px;
+	background: url('../images/btn-QR-code.png');
+}
+.btn.btn-showcode:hover{
+	background: url('../images/btn-QR-code-hover.png');
+}
+/*页码插件*/
+
+
