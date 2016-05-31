@@ -23,6 +23,7 @@ router.get('/p', function (req, res, next) {
         res.json({
             posts: posts,
             page: page,
+	    totalpage: parseInt(total/12 + 1),
             isFirstPage: (page - 1) == 0,
             isLastPage: ((page - 1) * 12 + posts.length) == total
         })
