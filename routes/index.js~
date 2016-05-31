@@ -124,7 +124,7 @@ router.post('/upload', multipartMiddleware, function (req, res) {
     var hour = date.getHours();
     var min = date.getMinutes();
     var sec = date.getSeconds();
-    var imgname = year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec + '-' + value;
+    var imgname = year + '-' + month + '-' + day + '-' + hour + ':' + min + ':' + sec + '-' + value;
     console.log(date);
     var exname = req.files.filename.name.substring(req.files.filename.name.lastIndexOf('.') + 1);
     var bigimage = imgname + "." + exname;
