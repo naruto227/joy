@@ -83,7 +83,7 @@ router.post('/login', function (req, res) {
         }
         //用户名密码都匹配后，将用户信息存入 session
         req.session.user = user;
-        res.json({'success': '登陆成功!', 'coll': user.user_collection, 'account': user.account});
+        res.json({'success': '登录成功!', 'coll': user.user_collection, 'account': user.account});
     });
 });
 
