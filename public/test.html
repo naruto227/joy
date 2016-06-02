@@ -37,7 +37,7 @@
 						<div class='joy-pics'>
 							<div class='joy-pic'>
 								<div class='joy-picdate'></div>
-								<img src = ""><button type='button' class='btn btn-showcode'></button>
+								<img class='joy-thumbnail' src = "" data-src=""><button type='button' class='btn btn-showcode'></button>
 							</div>
 						</div>
 					</div>
@@ -48,6 +48,7 @@
 		</div>
 		
 		<script type="text/javascript">
+			var totalpage;
 			getPics(1);
 
 			Dropzone.options.myAwesomeDropzone = {
@@ -77,7 +78,14 @@
 			          self.processQueue();
 			        });
 				    this.on("success", function(file,response) {
-		                console.log(response);
+		                if(response.success){
+		                	this.removeFile(file);
+		                	//显示二维码
+
+
+		                }else{
+		                	alert("上传失败");
+		                }
 		            });
 		            this.on("error", function(file, errorMessage){
 			            $(file.previewElement).find('[data-dz-errormessage]').html(errorMessage);
@@ -97,13 +105,36 @@
 					datatype:'json',
 					success:function(data){
 						console.log(data);
+						if(p == 1){
+							totalpage = data.totalpage;
+							$('#pic-pagination').bootpag({
+							    total: totalpage,
+							    maxVisible: 5
+							});
+						}
+						var directives = {
+						  "joy-picdate": {
+						  		text:function(params){
+						  			return this.time.second;
+						  		}
+						  },
+						  "joy-thumbnail": {
+						  	src:function(params){
+						  		return this.des_file_s;
+						  	},
+						  	'data-src':function(params){
+						  		return this.des_file;
+						  	}
+						  }
+						};
+						$('.joy-pics').render(data.posts,directives);
 					}
 				})
 			}
 			
 			/*页码*/
 			$('#pic-pagination').bootpag({
-			    total: 5,
+			    total: totalpage,
 			    maxVisible: 5
 			}).on("page", function(event, num){
 				getPics(num);
