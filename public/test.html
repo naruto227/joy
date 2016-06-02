@@ -88,7 +88,7 @@
 			          self.processQueue();
 			        });
 				    this.on("success", function(file,response) {
-		                if(response.success){
+		                if(response.success == "上传成功"){
 		                	this.removeFile(file);
 		                	getPics(1);
 		                	//显示二维码
