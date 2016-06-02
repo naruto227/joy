@@ -118,7 +118,7 @@
 
 			$(".btn-choose").on('click',choose);
 
-			$(".btn-showcode").on('click',function(){
+			$(".joy-pics").on('click','.btn-showcode',function(){
 				var imgurl = $(this).siblings('img').attr('data-src');
 				showCode(imgurl);
 			});
@@ -126,7 +126,7 @@
 			$('.btn-confirm').on('click',function(){
 				$(this).closest('.pop-window').hide();
 				$('.pop-cover').css('opacity',0).hide();
-			})
+			});
 
 			// 获取图片墙
 			function getPics(p){
