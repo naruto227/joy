@@ -88,7 +88,7 @@
 			          self.processQueue();
 			        });
 				    this.on("success", function(file,response) {
-				    	response = response.parseJSON();
+				    	response = JSON.parse(response);
 		                if(response.success == "上传成功"){
 		                	this.removeFile(file);
 		                	getPics(1);
