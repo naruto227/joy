@@ -7,6 +7,8 @@
     	<title>Joy</title>
     	<!--css-->
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="stylesheets/style.css" rel="stylesheet">
+
     	<!--js-->
     	<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
 	</head>
@@ -29,7 +31,8 @@
 		                            <div class="col-md-6">
 		                                <input type="password" class="form-control" name="password">
 		                            </div>
-		                        </div>                     
+		                        </div>
+		                        <div class='error-tip col-md-6 col-md-offset-4'></div>                     
 		                        <div class="form-group">
 		                            <div class="col-md-6 col-md-offset-4">
 		                                <div class="checkbox">
@@ -39,23 +42,53 @@
 		                                </div>
 		                            </div>
 		                        </div>
-		                        <div class="form-group">
-		                            <div class="col-md-6 col-md-offset-4">
-		                                <button type="submit" class="btn btn-primary">
-		                                    <i class="fa fa-btn fa-sign-in"></i>登录
-		                                </button>
-
-		                                <a class="btn btn-link" href="{{ url('/') }}">忘记密码?</a>
-		                            </div>
-		                        </div>
 		                    </form>
+		                     <div class="form-group">
+	                            <div class="col-md-6 col-md-offset-4">
+	                                <button type="submit" class="btn btn-primary">
+	                                    <i class="fa fa-btn fa-sign-in"></i>登录
+	                                </button>
+
+	                                <a class="btn btn-link" href="{{ url('/') }}">忘记密码?</a>
+	                            </div>
+	                        </div>
 		                </div>
 		            </div>
 		        </div>
 		    </div>
 		</div>
 		<script type="text/javascript">
+			$("button[type='submit']").on('click',function(){
+				$(".error-tip").hide();
+				var name = $("input[name='name']").val();
+				var pwd = $("input[name='password']").val();
+				if(!name){
+					$(".error-tip").html('用户名不能为空').show();
+					return;
+				}
+				if(!pwd){
+					$(".error-tip").html('密码不能为空').show();
+					return;
+				}
 			
+				$.ajax({
+					type: 'post',
+					url: '/login',
+					data:{
+						name:name,
+						password:pwd,
+					},
+					datatype:'json',
+					success:function(data){
+						if(data.success){
+							window.location.href = "test.html";
+						}else{
+							alert(data);
+						}
+					}
+				})
+
+			})
 		</script>
 	</body>
 </html>

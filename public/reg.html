@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>Joy</title>
+    	<!--css-->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="stylesheets/style.css" rel="stylesheet">
+    	<!--js-->
+    	<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="container" style='margin-top: 100px'>
+		    <div class="row">
+		        <div class="col-md-8 col-md-offset-2">
+		            <div class="panel panel-default">
+		                <div class="panel-heading">注册</div>
+		                <div class="panel-body">
+		                    <form class="form-horizontal" role="form" method="POST" action="/reg">
+		                        <div class="form-group">
+		                            <label class="col-md-3 control-label">用户名</label>
+		                            <div class="col-md-6">
+		                                <input class="form-control" name="name" value="">
+		                            </div>
+		                            <span class='col-md-3 error-tip error-name'></span>
+		                        </div>
+		                        <div class="form-group">
+		                            <label class="col-md-3 control-label">邮箱</label>
+		                            <div class="col-md-6">
+		                                <input type="email" class="form-control" name="email">
+		                            </div>
+		                            <span class='col-md-3 error-tip error-email'></span>
+		                        </div> 
+		                        <div class="form-group">
+		                            <label class="col-md-3 control-label">密码</label>
+		                            <div class="col-md-6">
+		                                <input type="password" class="form-control" name="password">
+		                            </div>
+		                            <span class='col-md-3 error-tip error-password'></span>
+		                        </div>   
+		                        <div class="form-group">
+		                            <label class="col-md-3 control-label">密码</label>
+		                            <div class="col-md-6">
+		                                <input type="password" class="form-control" name="password-repeat">
+		                            </div>
+		                        </div>                   
+		                        <div class="form-group">
+		                            <div class="col-md-6 col-md-offset-3">
+		                                <div class="checkbox">
+		                                    <label>
+		                                        <input type="checkbox" name="remember"> 记住我
+		                                    </label>
+		                                </div>
+		                            </div>
+		                        </div>	                        
+		                    </form>
+		                    <div class="form-group">
+		                            <div class="col-md-6 col-md-offset-3">
+		                                <button type="submit" class="btn btn-primary">
+		                                    <i class="fa fa-btn fa-sign-in"></i>注册
+		                                </button>
+
+		                               <!--  <a class="btn btn-link" href="{{ url('/') }}">忘记密码?</a> -->
+		                            </div>
+		                     </div>
+		                    <div class='text-center'>已有账号？<a href='login.html'>立即登录</a></div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<script type="text/javascript">
+			$("button[type='submit']").on('click',function(){
+				$(".error-tip").hide();
+				var name = $("input[name='name']").val();
+				var email = $("input[name='email']").val();
+				var pwd = $("input[name='password']").val();
+				var pwd2 = $("input[name='password-repeat']").val();
+				var email_reg = /^[a-z]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/i;
+				if(!name){
+					$(".error-name").html('用户名不能为空').show();
+					return;
+				}
+				if(!email){
+					$(".error-email").html('邮箱不能为空').show();
+					return;
+				}
+				if(!email_reg.test(email)){
+					$(".error-email").html('邮箱格式不正确').show();
+					return;
+				}
+				if(!pwd){
+					$(".error-password").html('密码不能为空').show();
+					return;
+				}
+				if((!pwd2) || (pwd != pwd2)){
+					$(".error-password").html('两次密码输入不一致').show();
+					return;
+				}
+				$.ajax({
+					type: 'post',
+					url: '/reg',
+					data:{
+						name:name,
+						email:email,
+						password:pwd,
+						"password-repeat":pwd2
+					},
+					datatype:'json',
+					success:function(data){
+						if(data.success){
+							window.location.href = "test.html";
+						}else{
+							alert(data);
+						}
+					}
+				})
+
+			})
+		</script>
+	</body>
+</html>

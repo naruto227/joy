@@ -11,6 +11,7 @@
     	<!--js-->
     	<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/dropzone/4.3.0/dropzone.js"></script>
+		<script src="//cdn.bootcss.com/transparency/0.11.0/transparency.min.js"></script>
 		<script src="//cdn.bootcss.com/bootpag/1.0.7/jquery.bootpag.min.js"></script>
 	</head>
 	<body>
@@ -19,18 +20,11 @@
 				<div class='joy-title'>
 					<span>JOY照片</span>
 					<div class='pull-right joy-user'>
-						<img src='images/dot-head-sc 1018  forever stop 24510
- 1019  cd ..
- 1020  history
-[root@iZ285fxw6i8Z www]# forever start joy/bin/www
-warn:    --minUptime not set. Defaulting to: 1000ms
-warn:    --spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms
-info:    Forever processing file: joy/bin/www
-ulpture-image.png'><span>BETH</span>
+						<img src='pic/dot-head-sculpture-image.png'><span>BETH</span>
 					</div>
 				</div>
-				<form action='/test' id="my-awesome-dropzone" class="dropzone">
-		  
+				<form action='/upload' id="my-awesome-dropzone" class="dropzone">
+		  			
 				</form>
 				<div class='btn-group'>
 					<button type="button" class='btn btn-choose'></button><button type="submit" class='btn btn-upload'></button>
@@ -42,17 +36,8 @@ ulpture-image.png'><span>BETH</span>
 						</div>
 						<div class='joy-pics'>
 							<div class='joy-pic'>
-								<div class='joy-picdate'>2016-05-29 19:53:28</div>
-								<img src = "https://gw.alicdn.com/bao/uploaded/TB1gSjmJVXXXXcXXXXXSutbFXXX.jpg_190x190q90"><button type='button' class='btn btn-showcode'></button>
-							</div><div class='joy-pic'>
-								<div class='joy-picdate'>2016-05-29 19:53:28</div>
-								<img src = "https://gw.alicdn.com/bao/uploaded/TB1gSjmJVXXXXcXXXXXSutbFXXX.jpg_190x190q90"><button type='button' class='btn btn-showcode'></button>
-							</div><div class='joy-pic'>
-								<div class='joy-picdate'>2016-05-29 19:53:28</div>
-								<img src = "https://gw.alicdn.com/bao/uploaded/TB1gSjmJVXXXXcXXXXXSutbFXXX.jpg_190x190q90"><button type='button' class='btn btn-showcode'></button>
-							</div><div class='joy-pic'>
-								<div class='joy-picdate'>2016-05-29 19:53:28</div>
-								<img src = "https://gw.alicdn.com/bao/uploaded/TB1gSjmJVXXXXcXXXXXSutbFXXX.jpg_190x190q90"><button type='button' class='btn btn-showcode'></button>
+								<div class='joy-picdate'></div>
+								<img src = ""><button type='button' class='btn btn-showcode'></button>
 							</div>
 						</div>
 					</div>
@@ -63,29 +48,68 @@ ulpture-image.png'><span>BETH</span>
 		</div>
 		
 		<script type="text/javascript">
+			getPics(1);
+
 			Dropzone.options.myAwesomeDropzone = {
-			  paramName: "file", // The name that will be used to transfer the file
-			  maxFilesize: 2, // MB
-			 // autoProcessQueue: false,
-			 // uploadMultiple: true,
-			 // parallelUploads: 100,
+			  method: 'post',
+			  paramName: "filename", // The name that will be used to transfer the file
+			  maxFilesize: 1, // MB
+			  filesizeBase: 1024,
+			  autoProcessQueue: false,
+			  uploadMultiple: false,
+			  acceptedFiles: 'image/*',
 			  dictDefaultMessage: '请将图片拖到这里',
 			  addRemoveLinks: true,
 			  maxFiles:1,
-			  accept: function(file, done) {
-			    if (file.name == "justinbieber.jpg") {
-			      done("Naha, you don't.");
-			    }
-			    else { done(); }
-			  },
-			  maxfilesexceeded: function(file,done){
+			  dictFileTooBig: "图片大小超出{{maxFilesize}}MB，请删除并重新选择",
+			  dictRemoveFile: "删除图片",
+			  dictMaxFilesExceeded: "只能选择一张图片",
+			  thumbnailWidth: "180",
+			  thumbnailHeight: "180",
+			  init: function() {
+				    var self = this;
 
+			        /* 点击上传按钮开始ajax上传 */
+			        var button = document.querySelector(".btn-upload");
+			        button.addEventListener("click", function(e) {
+			          e.preventDefault();
+			          e.stopPropagation();
+			          self.processQueue();
+			        });
+				    this.on("success", function(file) {
+		                console.log("文件 " + file.name + "uploaded");
+		            });
+		            this.on("error", function(file, errorMessage){
+			            $(file.previewElement).find('[data-dz-errormessage]').html(errorMessage);
+			        });
+				},
+			  maxfilesexceeded: function(file,done){
 			  	this.removeFile(file);
-			  	alert("only one");
+			  	alert("只能选择一张图片");
 			  }
 			};
 
+			// 获取图片墙
+			function getPics(p){
+				$.ajax({
+					type:'get',
+					url:'http://121.42.136.52:3001/p?p='+p,
+					datatype:'json',
+					success:function(data){
+						console.log(data);
+					}
+				})
+			}
 			
+			/*页码*/
+			$('#pic-pagination').bootpag({
+			    total: 5,
+			    maxVisible: 5
+			}).on("page", function(event, num){
+				getPics(num);
+			});
+
+			$(".btn-choose").on('click',choose);
 			function choose(){
 				$('.dropzone').trigger('click');
 			}
