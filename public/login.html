@@ -82,6 +82,8 @@
 					success:function(data){
 						if(data.success){
 							window.location.href = "test.html";
+						}else if(data.error == '已登录'){
+							window.location.href = "test.html";
 						}else{
 							alert(data);
 						}
