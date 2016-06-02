@@ -209,3 +209,55 @@ html,body{
     width: 180px;
     height: 180px;
 }
+/* 弹窗 */
+.pop-window{
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    display: none; 
+    overflow: auto;
+    overflow-y: scroll;
+}
+.pop-cover{
+	opacity: 0;
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: #000;
+    display: none;
+}
+.pop-content{
+	position: relative;
+    z-index: 1050;
+    width: auto;
+    margin: 350px auto;
+    width:500px;
+    height:500px;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
+    text-align: center;
+    background: #fff;
+}
+.pop-title{
+	color:#4d616f;
+	font-size: 20px;
+	padding-top: 86px;
+}
+.pop-content .qrcode{
+	width:210px;
+	height: 210px;
+	margin:30px auto;
+}
+.btn.btn-confirm{
+	width:120px;
+	height:40px;
+	background: url('../pic/btn-determine.png');
+}
+.btn.btn-confirm:hover{
+	background: url('../pic/btn-determiner-hover.png');
+}

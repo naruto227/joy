@@ -13,6 +13,7 @@
 		<script src="//cdn.bootcss.com/dropzone/4.3.0/dropzone.js"></script>
 		<script src="//cdn.bootcss.com/transparency/0.11.0/transparency.min.js"></script>
 		<script src="//cdn.bootcss.com/bootpag/1.0.7/jquery.bootpag.min.js"></script>
+		<script src="//cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 	</head>
 	<body>
 		<div class='joy-container'>
@@ -45,6 +46,15 @@
 					<div id="pic-pagination"></div>
 				</div>
 			</div>
+			<!-- 二维码弹窗 -->
+			<div class='pop-window'>
+				<div class='pop-content'>
+					<div class='pop-title'>手机扫描获取二维码</div>
+					<div class="qrcode"></div>
+					<button type='button' class='btn btn-confirm'></button>
+				</div>
+			</div>
+			<div class='pop-cover'></div>
 		</div>
 		
 		<script type="text/javascript">
@@ -82,8 +92,7 @@
 		                	this.removeFile(file);
 		                	getPics(1);
 		                	//显示二维码
-
-
+		                	showCode(response.imgurl);
 		                }else{
 		                	alert("上传失败");
 		                }
@@ -97,6 +106,26 @@
 			  	alert("只能选择一张图片");
 			  }
 			};
+
+			/*页码*/
+			$('#pic-pagination').bootpag({
+			    total: totalpage,
+			    maxVisible: 5
+			}).on("page", function(event, num){
+				getPics(num);
+			});
+
+			$(".btn-choose").on('click',choose);
+
+			$(".btn-showcode").on('click',function(){
+				var imgurl = $(this).siblings('img').attr('data-src');
+				showCode(imgurl);
+			});
+
+			$('.btn-confirm').on('click',function(){
+				$(this).closest('.pop-window').hide();
+				$('.pop-cover').css('opacity',0).hide();
+			})
 
 			// 获取图片墙
 			function getPics(p){
@@ -132,18 +161,22 @@
 					}
 				})
 			}
-			
-			/*页码*/
-			$('#pic-pagination').bootpag({
-			    total: totalpage,
-			    maxVisible: 5
-			}).on("page", function(event, num){
-				getPics(num);
-			});
 
-			$(".btn-choose").on('click',choose);
+			//选择图片
 			function choose(){
 				$('.dropzone').trigger('click');
+			}
+
+			//显示二维码
+			function showCode(imgurl){
+				$(".pop-content .qrcode").find('canvas').remove();
+				$(".pop-content .qrcode").qrcode({  
+				    width: 210, //宽度 
+				    height:210, //高度 
+				    text: "http://121.42.136.52/images/"+imgurl //任意内容 
+				}); 
+				$('.pop-cover').css('opacity',0.1).show();
+				$('.pop-window').show();
 			}
 		</script>
 	</body>
