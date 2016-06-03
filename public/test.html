@@ -110,7 +110,9 @@
 			/*页码*/
 			$('#pic-pagination').bootpag({
 			    total: totalpage,
-			    maxVisible: 5
+			    maxVisible: 5,
+			    next:"<img src='pic/icon-arrow-l.png'>",
+			    prev:"<img src='pic/icon-arrow-r.png'>"
 			}).on("page", function(event, num){
 				getPics(num);
 			});

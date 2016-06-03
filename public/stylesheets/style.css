@@ -156,7 +156,9 @@ html,body{
   height:70px;
   font-size: 30px;
   line-height: 30px;
+  box-sizing: border-box;
   padding:20px;
+  margin-left: 30px;
 }
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
