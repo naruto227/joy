@@ -70,6 +70,11 @@ router.post('/reg', function (req, res) {
         });
     });
 });
+router.get('/login', checkNotLogin);
+router.get('/login', function(req,res){
+    res.sendFile(config.upload.absolute+'login.html')
+});
+
 
 router.post('/login', checkNotLogin);
 router.post('/login', function (req, res) {
