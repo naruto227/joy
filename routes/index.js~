@@ -15,14 +15,18 @@ router.get('/p', checkLogin);
 router.get('/p', function (req, res, next) {
     //判断是否是第一页，并把请求的页数转换成 number 类型
     var page = parseInt(req.query.p) || 1;
-    //查询并返回第 page 页的 10 篇文章
+    //查询并返回第 page 页的 12条数据
     Post.getTwel(req.session.user.name, page, function (err, posts, total) {
         if (err) {
             posts = [];
         }
+        if(!(total%12)) {
+            total = total -1;
+        }
         res.json({
             posts: posts,
             page: page,
+            //total: total,
 	    totalpage: parseInt(total/12 + 1),
             isFirstPage: (page - 1) == 0,
             isLastPage: ((page - 1) * 12 + posts.length) == total
@@ -39,7 +43,7 @@ router.post('/reg', function (req, res) {
     if (password_re != password) {
         return res.json({'error': '两次输入的密码不一致!'});
     }
-    //生成密码的 md5 值
+    //生成密码的 md5 值.
     var md5 = crypto.createHash('md5'),
         password = md5.update(req.body.password).digest('hex');
     var newUser = new User({
@@ -66,6 +70,11 @@ router.post('/reg', function (req, res) {
         });
     });
 });
+router.get('/login', checkNotLogin);
+router.get('/login', function(req,res){
+    res.sendFile(config.upload.absolute+'login.html')
+});
+
 
 router.post('/login', checkNotLogin);
 router.post('/login', function (req, res) {
@@ -83,7 +92,7 @@ router.post('/login', function (req, res) {
         }
         //用户名密码都匹配后，将用户信息存入 session
         req.session.user = user;
-        res.json({'success': '登陆成功!', 'coll': user.user_collection, 'account': user.account});
+        res.json({'success': '登录成功!', 'coll': user.user_collection, 'account': user.account});
     });
 });
 

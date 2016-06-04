@@ -10,7 +10,7 @@ var config = require("../config.js");
 var multipartMiddleware = multipart();
 var router = express.Router();
 
-/* GET home page. */
+/* GET home page.get方式跳转页面 */
 router.get('/p', checkLogin);
 router.get('/p', function (req, res, next) {
     //判断是否是第一页，并把请求的页数转换成 number 类型
@@ -45,7 +45,7 @@ router.post('/reg', function (req, res) {
     }
     //生成密码的 md5 值.
     var md5 = crypto.createHash('md5'),
-        password = md5.update(req.body.password).digest('hex');
+        password = md5.update(req.body.password).digest('he34.pngx');
     var newUser = new User({
         name: name,
         password: password,
