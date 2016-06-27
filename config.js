@@ -13,7 +13,7 @@ var config = {
         path: path.join(__dirname, 'public/images/'),
         url: '/public/upload/',
         absolute: path.join(__dirname, 'public/'),
-
+        Imgpath: path.join(__dirname, 'public/pic/')
     },
 
 

@@ -24,7 +24,7 @@
 						<img src='pic/dot-head-sculpture-image.png'><span>BETH</span>
 					</div>
 				</div>
-				<form action='http://121.42.136.52:3001/upload' id="my-awesome-dropzone" class="dropzone">
+				<form action='http://localhost:3001/upload' id="my-awesome-dropzone" class="dropzone">
 		  			
 				</form>
 				<div class='btn-group'>
@@ -133,12 +133,12 @@
 			function getPics(p){
 				$.ajax({
 					type:'get',
-					url:'http://121.42.136.52:3001/p?p='+p,
+					url:'http://localhost:3001/p?p='+p,
 					datatype:'json',
 					success:function(data){
 						console.log(data);
 						if(p == 1){
-							totalpage = data.totalpage;
+							totalpaglogine = data.totalpage;
 							$('#pic-pagination').bootpag({
 							    total: totalpage,
 							    maxVisible: 5
@@ -176,7 +176,7 @@
 				$(".pop-content .qrcode").qrcode({  
 				    width: 210, //宽度 
 				    height:210, //高度 
-				    text: "http://121.42.136.52:3001/"+imgurl //任意内容 
+				    text: "http://localhost:3001/"+imgurl //任意内容
 				}); 
 				$('.pop-cover').css('opacity',0.1).show();
 				$('.pop-window').show();

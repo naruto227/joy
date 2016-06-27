@@ -73,7 +73,7 @@
 			
 				$.ajax({
 					type: 'post',
-					url: 'http://121.42.136.52:3001/login',
+					url: 'http://localhost:3001/login',
 					data:{
 						name:name,
 						password:pwd,
@@ -81,9 +81,9 @@
 					datatype:'json',
 					success:function(data){
 						if(data.success){
-							window.location.href = "test.html";
+							window.location.href = "/test.html";
 						}else if(data.error == '已登录!'){
-							window.location.href = "test.html";
+							window.location.href = "/test.html";
 						}else{
 							alert(data);
 						}
