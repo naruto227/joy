@@ -1,5 +1,5 @@
 //var Canvas = require('canvas'); //需安装canvas模块
-var crypto = require('crypto'), Post = require('../models/post.js'),
+var crypto = require("crypto"), Post = require('../models/post.js'),
     Comment = require('../models/comment.js');
 User = require('../models/user.js');
 var watermark = require('../models/waterMark.js');
@@ -68,7 +68,7 @@ router.post('/reg', function (req, res) {
     }
     //生成密码的 md5 值.
     var md5 = crypto.createHash('md5'),
-        password = md5.update(req.body.password).digest('he34.pngx');
+        password = md5.update(req.body.password).digest('hex');
     var newUser = new User({
         name: name,
         password: password,
