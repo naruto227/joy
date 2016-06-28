@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8224cd69-fb56-485b-8891-4cc37b726f46" name="Default" comment="test">
+    <list default="true" id="8224cd69-fb56-485b-8891-4cc37b726f46" name="Default" comment="缩略test">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/waterMark.js" afterPath="$PROJECT_DIR$/models/waterMark.js" />
     </list>
     <ignored path="joy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,17 +39,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="waterMark.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="waterMark.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/waterMark.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="-630">
               <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2016-5-28-9:39:32-9165_small.jpg" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2016-5-28-9:39:32-9165_small.jpg" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/images/2016-5-28-9:39:32-9165_small.jpg">
           <provider selected="true" editor-type-id="images">
             <state />
@@ -764,7 +763,7 @@
       <workItem from="1467038695772" duration="3161000" />
       <workItem from="1467043484641" duration="4240000" />
       <workItem from="1467070942412" duration="853000" />
-      <workItem from="1467076842487" duration="1217000" />
+      <workItem from="1467076842487" duration="1556000" />
     </task>
     <task id="LOCAL-00001" summary="asdasda">
       <created>1464707679313</created>
@@ -815,11 +814,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464945373530</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="缩略test">
+      <created>1467078360465</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1467078360465</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80664000" />
+    <option name="totallyTimeSpent" value="81003000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,7 +838,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289256" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -841,7 +847,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45860928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26036644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26036644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18900675" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -876,7 +882,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="asdasda" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="缩略test" />
+    <option name="LAST_COMMIT_MESSAGE" value="缩略test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1248,17 +1255,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/waterMark.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/2016-5-28-9:39:32-9165_small.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/waterMark.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630">
+          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
