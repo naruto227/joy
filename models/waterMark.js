@@ -37,7 +37,7 @@ exports.photo = function (name, user, callback) {
     var des_file_s = config.upload.path + smallimage;
     //var des_file_s1 = config.upload.path +'1231'+ smallimage;
 
-    var post = new Post(user.name, bigimage, smallimage);
+    var post = new Post(user, bigimage, smallimage);
 
     var MAX_HEIGHT = 100;
     try {

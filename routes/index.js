@@ -130,10 +130,10 @@ router.get('/logout', function (req, res) {
  * 加入了是否登录检测
  */
 
-router.post('/upload', checkLogin);
+//router.post('/upload', checkLogin);
 router.post('/upload', multipartMiddleware, function (req, res) {
-    var user = req.session.user;
-    watermark.photo(req.files.filename, user, function (err, response) {
+    //var user = req.session.user;
+    watermark.photo(req.files.filename, "hzq", function (err, response) {
         if (err) {
             return console.log(err);
         } else {
