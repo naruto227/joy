@@ -43,7 +43,7 @@ exports.photo = function (name, user, callback) {
     try {
         fs.readFile(name.path + "", function (err, data) {
             //var base64Data = req.body.imgData;
-            var img = new Canvas.Image;
+            /*var img = new Canvas.Image;
 
             img.onload = function () {
                 var w = img.width;
@@ -78,8 +78,8 @@ exports.photo = function (name, user, callback) {
                 res.send(err);
             }
 
-            img.src = data;
-            /*var img1 = new Canvas.Image;
+            img.src = data;*/
+            var img1 = new Canvas.Image;
 
              img1.onload = function () {
              var w = img1.width;
@@ -120,7 +120,7 @@ exports.photo = function (name, user, callback) {
              callback(err);
              }
 
-             img1.src = data;*/
+             img1.src = data;
             post.save(function (err) {
                 if (err) {
                     return res.end(err);
