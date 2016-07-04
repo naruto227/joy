@@ -40,7 +40,7 @@ exports.photo = function (name, user, callback) {
 
     var post = new Post(user, bigimage, smallimage);
 
-    var MAX_HEIGHT = 100;
+    // var MAX_HEIGHT = 100;
     images(name.path).size(1024).draw(images(config.upload.Imgpath + "waterMark.png").size(200),10,10)
         .save(des_file,{
             quality:100

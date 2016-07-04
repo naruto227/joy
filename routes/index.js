@@ -1,7 +1,7 @@
 //var Canvas = require('canvas'); //需安装canvas模块
 var crypto = require("crypto"), Post = require('../models/post.js'),
     Comment = require('../models/comment.js');
-User = require('../models/user.js');
+var User = require('../models/user.js');
 var watermark = require('../models/waterMark.js');
 var express = require('express');
 var fs = require('fs');
@@ -131,8 +131,8 @@ router.get('/logout', function (req, res) {
 
 //router.post('/upload', checkLogin);
 router.post('/upload', multipartMiddleware, function (req, res) {
-    //var user = req.session.user;
-    watermark.photo(req.files.filename, "hzq", function (err, response) {
+    var user = req.session.user;
+    watermark.photo(req.files.filename, user, function (err, response) {
         if (err) {
             return console.log(err);
         } else {
