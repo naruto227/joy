@@ -1,6 +1,6 @@
 //var Canvas = require('canvas'); //需安装canvas模块
-var crypto = require("crypto"), Post = require('../models/post.js'),
-    Comment = require('../models/comment.js');
+var crypto = require("crypto"), Post = require('../models/post.js');
+    // Comment = require('../models/comment.js');
 var User = require('../models/user.js');
 var watermark = require('../models/waterMark.js');
 var express = require('express');
